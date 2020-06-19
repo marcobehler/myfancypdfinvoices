@@ -8,9 +8,9 @@ import java.io.IOException;
 public class MyFirstServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.setContentType("text/html; charset=UTF-8");
-        resp.getWriter().print(
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        response.getWriter().print(
                 "<html>\n" +
                 "<body>\n" +
                 "<h1>Hello World</h1>\n" +
