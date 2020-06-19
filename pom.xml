@@ -15,7 +15,11 @@
     </properties>
 
     <dependencies>
-            <!-- Still Empty For Now -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>11.0.7</version>
+        </dependency>
     </dependencies>
 
     <build>
