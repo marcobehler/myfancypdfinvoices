@@ -1,6 +1,8 @@
-package com.marcobehler;
+package com.marcobehler.myfancypdfinvoices.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.marcobehler.myfancypdfinvoices.model.Invoice;
+import com.marcobehler.myfancypdfinvoices.services.InvoiceService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
