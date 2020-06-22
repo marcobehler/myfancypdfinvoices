@@ -1,5 +1,7 @@
 package com.marcobehler;
 
+import java.util.UUID;
+
 public class Invoice {
 
     private String id, userId, pdfUrl;
@@ -9,7 +11,8 @@ public class Invoice {
     public Invoice() {
     }
 
-    public Invoice(String userId, String pdfUrl, Integer amount) {
+    public Invoice(String userId, Integer amount, String pdfUrl) {
+        this.id = UUID.randomUUID().toString();
         this.userId = userId;
         this.pdfUrl = pdfUrl;
         this.amount = amount;
