@@ -6,6 +6,15 @@ public class Invoice {
 
     private Integer amount;
 
+    public Invoice() {
+    }
+
+    public Invoice(String userId, String pdfUrl, Integer amount) {
+        this.userId = userId;
+        this.pdfUrl = pdfUrl;
+        this.amount = amount;
+    }
+
     public String getId() {
         return id;
     }
