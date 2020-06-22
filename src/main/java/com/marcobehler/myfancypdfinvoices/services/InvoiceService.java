@@ -22,7 +22,7 @@ public class InvoiceService {
     }
 
     public Invoice create(String userId, Integer amount) {
-        User user = Application.userService.findById(userId);
+        User user = userService.findById(userId);
         if (user == null) {
             throw new IllegalStateException();
         }
