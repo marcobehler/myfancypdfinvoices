@@ -1,4 +1,4 @@
-package com.marcobehler.myfancypdfinvoices.app;
+package com.marcobehler.myfancypdfinvoices.context;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marcobehler.myfancypdfinvoices.services.InvoiceService;
