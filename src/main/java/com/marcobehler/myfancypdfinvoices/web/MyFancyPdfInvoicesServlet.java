@@ -2,7 +2,7 @@ package com.marcobehler.myfancypdfinvoices.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
-import com.marcobehler.myfancypdfinvoices.services.InvoiceService;
+import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
