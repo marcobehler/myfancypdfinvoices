@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- this is the legacy way of configuring spring -->
+
+    <bean id="userService" class="com.marcobehler.myfancypdfinvoices.services.UserService"/>
+
+    <bean id="invoiceService" class="com.marcobehler.myfancypdfinvoices.services.InvoiceService">
+        <constructor-arg value="userService"/>
+    </bean>
+
+    <bean id="objectMapper" class="om.fasterxml.jackson.databind.ObjectMapper"/>
+</beans>
