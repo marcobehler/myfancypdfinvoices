@@ -12,5 +12,5 @@
         <constructor-arg value="userService"/>
     </bean>
 
-    <bean id="objectMapper" class="om.fasterxml.jackson.databind.ObjectMapper"/>
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 </beans>
