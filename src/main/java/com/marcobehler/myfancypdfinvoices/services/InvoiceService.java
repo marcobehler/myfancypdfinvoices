@@ -1,6 +1,5 @@
 package com.marcobehler.myfancypdfinvoices.services;
 
-import com.marcobehler.myfancypdfinvoices.context.Application;
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.model.User;
 
