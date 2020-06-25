@@ -3,8 +3,8 @@ package com.marcobehler.myfancypdfinvoices.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marcobehler.myfancypdfinvoices.context.MyFancyPdfInvoicesApplicationConfiguration;
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
-import com.marcobehler.myfancypdfinvoices.services.InvoiceService;
-import com.marcobehler.myfancypdfinvoices.services.UserService;
+import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
+import com.marcobehler.myfancypdfinvoices.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.ServletException;

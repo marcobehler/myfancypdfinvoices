@@ -1,4 +1,4 @@
-package com.marcobehler.myfancypdfinvoices.services;
+package com.marcobehler.myfancypdfinvoices.service;
 
 import com.marcobehler.myfancypdfinvoices.model.User;
 

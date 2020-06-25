@@ -6,9 +6,9 @@
 
     <!-- this is the legacy way of configuring spring -->
 
-    <bean id="userService" class="com.marcobehler.myfancypdfinvoices.services.UserService"/>
+    <bean id="userService" class="com.marcobehler.myfancypdfinvoices.service.UserService"/>
 
-    <bean id="invoiceService" class="com.marcobehler.myfancypdfinvoices.services.InvoiceService">
+    <bean id="invoiceService" class="com.marcobehler.myfancypdfinvoices.service.InvoiceService">
         <constructor-arg value="userService"/>
     </bean>
 
