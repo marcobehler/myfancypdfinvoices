@@ -22,7 +22,7 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
     private InvoiceService invoiceService;
     // end::injectedFields[]
 
-
+    // tag::initMethod[]
     @Override
     public void init() throws ServletException {
         AnnotationConfigApplicationContext ctx
@@ -37,6 +37,7 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
         System.out.println(ctx.getBean(UserService.class));
         // end::getBeanMethods[]
     }
+    // end::initMethod[]
 
 
     @Override
