@@ -1,11 +1,11 @@
 package com.marcobehler.myfancypdfinvoices.service;
 
+// tag::atComponent[]
 import com.marcobehler.myfancypdfinvoices.model.User;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-// tag::atComponent[]
 @Component
 public class UserService {
 // end::atComponent[]
