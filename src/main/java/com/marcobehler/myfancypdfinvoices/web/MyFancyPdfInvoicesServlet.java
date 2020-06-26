@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+// tag::initMethodLarge[]
 public class MyFancyPdfInvoicesServlet extends HttpServlet {
 
     // tag::injectedFields[]
@@ -37,7 +38,7 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
         this.invoiceService = ctx.getBean(InvoiceService.class);
     }
     // end::initMethod[]
-
+// end::initMethodLarge[]
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
