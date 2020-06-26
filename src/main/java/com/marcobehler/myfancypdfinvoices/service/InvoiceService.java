@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-// tag:atComponent[]
+// tag::atComponent[]
 @Component
 public class InvoiceService {
-// end:atComponent[]
+// end::atComponent[]
     private final UserService userService;
 
     private List<Invoice> invoices = new CopyOnWriteArrayList<>();
