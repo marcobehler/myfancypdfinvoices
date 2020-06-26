@@ -1,5 +1,6 @@
 package com.marcobehler.myfancypdfinvoices.service;
 
+// tag::atComponent[]
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.model.User;
 import org.springframework.stereotype.Component;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-// tag::atComponent[]
 @Component
 public class InvoiceService {
 // end::atComponent[]
