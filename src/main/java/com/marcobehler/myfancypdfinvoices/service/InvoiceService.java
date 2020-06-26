@@ -1,6 +1,7 @@
 package com.marcobehler.myfancypdfinvoices.service;
 
 // tag::constructorInjection[]
+
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.model.User;
 import org.springframework.stereotype.Component;
@@ -11,10 +12,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Component
 public class InvoiceService {
 
+    private List<Invoice> invoices = new CopyOnWriteArrayList<>();
 
     private final UserService userService;
-
-    private List<Invoice> invoices = new CopyOnWriteArrayList<>();
 
     public InvoiceService(UserService userService) {
         this.userService = userService;
