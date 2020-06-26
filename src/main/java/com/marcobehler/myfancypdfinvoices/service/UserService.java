@@ -7,8 +7,8 @@ import java.util.UUID;
 
 // tag::atComponent[]
 @Component
-// end::atComponent[]
 public class UserService {
+// end::atComponent[]
 
     public User findById(String id) {
         String randomName = UUID.randomUUID().toString();
