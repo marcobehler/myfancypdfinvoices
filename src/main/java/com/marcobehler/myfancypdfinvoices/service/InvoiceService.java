@@ -6,6 +6,7 @@ import com.marcobehler.myfancypdfinvoices.model.User;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -27,6 +28,14 @@ public class InvoiceService {
         // TODO download from s3 and save locally
     }
     // end::postConstruct[]
+
+    // tag::preDestroy[]
+    @PreDestroy
+    public void shutdown() {
+        System.out.println("Deleting downloaded templates...");
+        // TODO actual deletion of PDFs
+    }
+    // end::preDestroy[]
 
     public List<Invoice> findAll() {
         return invoices;
