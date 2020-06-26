@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
+// tag:atComponent[]
 @Component
+// end:atComponent[]
 public class UserService {
 
     public User findById(String id) {
