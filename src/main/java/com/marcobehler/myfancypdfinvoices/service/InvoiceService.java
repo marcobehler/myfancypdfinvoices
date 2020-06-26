@@ -11,6 +11,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Component
 public class InvoiceService {
 // end::atComponent[]
+
     private final UserService userService;
 
     private List<Invoice> invoices = new CopyOnWriteArrayList<>();
