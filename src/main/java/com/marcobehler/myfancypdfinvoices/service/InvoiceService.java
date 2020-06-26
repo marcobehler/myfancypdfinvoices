@@ -1,6 +1,6 @@
 package com.marcobehler.myfancypdfinvoices.service;
 
-// tag::fieldInjection[]
+
 
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.model.User;
@@ -15,10 +15,7 @@ public class InvoiceService {
 
     private List<Invoice> invoices = new CopyOnWriteArrayList<>();
 
-    @Autowired
     private UserService userService;
-
-    // end::fieldInjection[]
 
     public List<Invoice> findAll() {
         return invoices;
@@ -36,4 +33,13 @@ public class InvoiceService {
         invoices.add(invoice);
         return invoice;
     }
+
+    // tag::setterInjection[]
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    // end::setterInjection[]
 }
