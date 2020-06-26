@@ -19,6 +19,7 @@ public class InvoiceService {
         this.userService = userService;
     }
 
+
     public List<Invoice> findAll() {
         return invoices;
     }
