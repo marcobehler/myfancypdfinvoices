@@ -5,17 +5,17 @@ import com.marcobehler.myfancypdfinvoices.ApplicationLauncher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-// tag::componentScanAnnotation[]
 @ComponentScan(basePackageClasses = ApplicationLauncher.class)
+// tag::propertySourceAnnotation[]
+@PropertySource("classpath:/application.properties")
 public class MyFancyPdfInvoicesApplicationConfiguration {
-// end::componentScanAnnotation[]
+// end::propertySourceAnnotation[]
 
-    // tag::objectMapperMethod[]
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper();
     }
-    // end::objectMapperMethod[]
 }
