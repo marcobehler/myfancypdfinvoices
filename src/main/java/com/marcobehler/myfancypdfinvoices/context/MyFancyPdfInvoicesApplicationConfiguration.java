@@ -11,7 +11,8 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan(basePackageClasses = ApplicationLauncher.class)
 // tag::propertySourceAnnotation[]
 @PropertySource("classpath:/application.properties")
-//@PropertySource("classpath:/someOtherFile.properties")
+@PropertySource(value = "classpath:/application-${spring.profiles.active}.properties"
+                    , ignoreResourceNotFound = true)
 public class MyFancyPdfInvoicesApplicationConfiguration {
 // end::propertySourceAnnotation[]
 
