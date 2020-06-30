@@ -1,21 +1,28 @@
 package com.marcobehler.myfancypdfinvoices.web;
 
-import org.springframework.stereotype.Controller;
+import com.marcobehler.myfancypdfinvoices.model.Invoice;
+import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-// tag::classAnnotations[]
-@Controller
+import java.util.List;
+
+// tag:restControllerAnnotation[]
+@RestController
 public class MyFirstSpringController {
-// end::classAnnotations[]
+// end:restControllerAnnotation[]
 
-    // tag::getMapping[]
-    @GetMapping("/")
-    @ResponseBody
-    // tag::indexMethod[]
-    public String index() {
-    // end::getMapping[]
-        return "Hello World";
+    // tag:invoiceServiceInjection[]
+    @Autowired
+    private InvoiceService invoiceService;
+    // end:invoiceServiceInjection[]
+
+    // tag:getMethod[]
+    @GetMapping("/invoices")
+    // @RequestMapping(value = "/invoices", method = RequestMethod.GET)
+    public List<Invoice> invoices() {
+        return invoiceService.findAll();
     }
-    // end::indexMethod[]
+    // end:getMethod[]
 }
