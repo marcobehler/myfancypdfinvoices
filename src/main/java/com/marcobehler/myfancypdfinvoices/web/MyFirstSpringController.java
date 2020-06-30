@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 // tag::classAnnotations[]
 @Controller
 @ResponseBody
-// end:classAnnotations[]
 public class MyFirstSpringController {
+// end:classAnnotations[]
 
     // tag::getMapping[]
     @GetMapping("/")
