@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 // tag::classAnnotations[]
 @Controller
-@ResponseBody
 public class MyFirstSpringController {
 // end:classAnnotations[]
 
     // tag::getMapping[]
     @GetMapping("/")
+    @ResponseBody
     // end::getMapping[]
     // tag::indexMethod[]
     public String index() {
