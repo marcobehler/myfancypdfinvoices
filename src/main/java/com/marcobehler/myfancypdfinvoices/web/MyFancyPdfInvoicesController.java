@@ -10,7 +10,7 @@ import java.util.List;
 
 // tag:restControllerAnnotation[]
 @RestController
-public class MyFirstSpringController {
+public class MyFancyPdfInvoicesController {
 // end:restControllerAnnotation[]
 
     // tag:invoiceServiceInjection[]
