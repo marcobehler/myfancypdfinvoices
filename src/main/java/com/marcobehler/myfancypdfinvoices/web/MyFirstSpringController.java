@@ -12,9 +12,9 @@ public class MyFirstSpringController {
     // tag::getMapping[]
     @GetMapping("/")
     @ResponseBody
-    // end::getMapping[]
     // tag::indexMethod[]
     public String index() {
+    // end::getMapping[]
         return "Hello World";
     }
     // end::indexMethod[]
