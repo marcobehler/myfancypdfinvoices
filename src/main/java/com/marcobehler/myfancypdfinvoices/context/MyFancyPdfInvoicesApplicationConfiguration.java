@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @ComponentScan(basePackageClasses = ApplicationLauncher.class)
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:/application.properties")
 @PropertySource(value = "classpath:/application-${spring.profiles.active}.properties"
                     , ignoreResourceNotFound = true)
+@EnableWebMvc
 public class MyFancyPdfInvoicesApplicationConfiguration {
 // end::propertySourceAnnotation[]
 
