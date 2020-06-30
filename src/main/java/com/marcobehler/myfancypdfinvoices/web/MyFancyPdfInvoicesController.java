@@ -11,14 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 // tag::restControllerAnnotation[]
-@Controller
-@ResponseBody
+@RestController
 public class MyFancyPdfInvoicesController {
 // end::restControllerAnnotation[]
 
     // tag::invoiceServiceInjection[]
-    @Autowired
-    private InvoiceService invoiceService;
+    private final InvoiceService invoiceService;
+
+    public MyFancyPdfInvoicesController(InvoiceService invoiceService) {
+        this.invoiceService = invoiceService;
+    }
     // end::invoiceServiceInjection[]
 
     // tag::getMethod[]
