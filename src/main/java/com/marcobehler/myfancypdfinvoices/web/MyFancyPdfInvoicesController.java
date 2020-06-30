@@ -4,9 +4,7 @@ import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,4 +31,14 @@ public class MyFancyPdfInvoicesController {
     }
     // end::invoiceMethod[]
 
+    // tag::postAnnotation[]
+    @PostMapping("/invoices")
+    // end::postAnnotation[]
+    // tag::postMethodSignature[]
+    public Invoice createInvoice(@RequestParam("user_id") String userId, @RequestParam Integer amount) {
+    // end::postMethodSignature[]
+    // tag::postDelegate[]
+        return invoiceService.create(userId, amount);
+    // end::postDelegate[]
+    }
 }
