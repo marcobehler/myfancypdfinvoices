@@ -39,6 +39,13 @@
             <version>6.2.7</version>
         </dependency>
         <!-- end::springContextDependency[] -->
+        <!-- tag::springMvcDependency[] -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>6.2.7</version>
+        </dependency>
+        <!-- end::springMvcDependency[] -->
     </dependencies>
 
     <build>
