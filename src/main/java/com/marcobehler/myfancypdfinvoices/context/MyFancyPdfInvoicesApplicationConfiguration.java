@@ -10,13 +10,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @ComponentScan(basePackageClasses = ApplicationLauncher.class)
-// tag::propertySourceAnnotation[]
 @PropertySource("classpath:/application.properties")
 @PropertySource(value = "classpath:/application-${spring.profiles.active}.properties"
                     , ignoreResourceNotFound = true)
+// tag::enableWebMVCAnnotation[]
 @EnableWebMvc
 public class MyFancyPdfInvoicesApplicationConfiguration {
-// end::propertySourceAnnotation[]
+// end::enableWebMVCAnnotation[]
 
     @Bean
     public ObjectMapper objectMapper() {
