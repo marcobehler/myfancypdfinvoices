@@ -2,9 +2,11 @@ package com.marcobehler.myfancypdfinvoices.web;
 
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import com.marcobehler.myfancypdfinvoices.vo.InvoiceVO;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -26,19 +28,19 @@ public class MyFancyPdfInvoicesController {
     // @RequestMapping(value = "/invoices", method = RequestMethod.GET)
     // tag::invoiceMethod[]
     public List<Invoice> invoices() {
-    // end::getAnnotation[]
+        // end::getAnnotation[]
         return invoiceService.findAll();
     }
     // end::invoiceMethod[]
 
     // tag::postAnnotation[]
-    @PostMapping("/invoices/{userId}/{amount}")
+    @PostMapping("/invoices")
     // end::postAnnotation[]
     // tag::postMethodSignature[]
-    public Invoice createInvoice(@PathVariable String userId, @PathVariable Integer amount) {
+    public Invoice createInvoice(@RequestBody InvoiceVO invoiceVO) {
     // end::postMethodSignature[]
     // tag::postDelegate[]
-        return invoiceService.create(userId, amount);
+        return invoiceService.create(invoiceVO.getUserId(), invoiceVO.getAmount());
     // end::postDelegate[]
     }
 }
