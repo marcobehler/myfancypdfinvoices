@@ -35,7 +35,7 @@ public class MyFancyPdfInvoicesController {
     @PostMapping("/invoices/{userId}/{amount}")
     // end::postAnnotation[]
     // tag::postMethodSignature[]
-    public Invoice createInvoice(@PathVariable("user_id") String userId, @PathVariable Integer amount) {
+    public Invoice createInvoice(@PathVariable String userId, @PathVariable Integer amount) {
     // end::postMethodSignature[]
     // tag::postDelegate[]
         return invoiceService.create(userId, amount);
