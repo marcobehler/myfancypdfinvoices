@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-// tag:restControllerAnnotation[]
+// tag::restControllerAnnotation[]
 @RestController
 public class MyFancyPdfInvoicesController {
-// end:restControllerAnnotation[]
+// end::restControllerAnnotation[]
 
-    // tag:invoiceServiceInjection[]
+    // tag::invoiceServiceInjection[]
     @Autowired
     private InvoiceService invoiceService;
-    // end:invoiceServiceInjection[]
+    // end::invoiceServiceInjection[]
 
-    // tag:getMethod[]
+    // tag::getMethod[]
     @GetMapping("/invoices")
     // @RequestMapping(value = "/invoices", method = RequestMethod.GET)
     public List<Invoice> invoices() {
         return invoiceService.findAll();
     }
-    // end:getMethod[]
+    // end::getMethod[]
 }
