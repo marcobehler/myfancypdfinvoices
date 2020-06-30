@@ -23,11 +23,14 @@ public class MyFancyPdfInvoicesController {
     }
     // end::invoiceServiceInjection[]
 
-    // tag::getMethod[]
+    // tag::getAnnotation[]
     @GetMapping("/invoices")
     // @RequestMapping(value = "/invoices", method = RequestMethod.GET)
+    // tag::invoiceMethod[]
     public List<Invoice> invoices() {
+    // end::getAnnotation[]
         return invoiceService.findAll();
     }
-    // end::getMethod[]
+    // end::invoiceMethod[]
+
 }
