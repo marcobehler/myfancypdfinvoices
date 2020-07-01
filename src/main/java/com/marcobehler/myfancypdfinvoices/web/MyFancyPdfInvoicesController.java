@@ -25,13 +25,13 @@ public class MyFancyPdfInvoicesController {
         this.invoiceService = invoiceService;
     }
 
-    // tag:homePageMethodDescription[]
+    // tag::homePageMethodDescription[]
     @GetMapping("/")
     public String homepage() {
-    // end:homePageMethodDescription[]
-    // tag:templateReturn[]
+    // end::homePageMethodDescription[]
+    // tag::templateReturn[]
         return "index.html";
-    // end:templateReturn[]
+    // end::templateReturn[]
     }
     // end::homepageMethod[]
     @GetMapping("/invoices")
