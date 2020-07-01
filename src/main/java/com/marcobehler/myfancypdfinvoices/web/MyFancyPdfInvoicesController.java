@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 // tag::restControllerAnnotation[]
@@ -37,7 +38,7 @@ public class MyFancyPdfInvoicesController {
     @PostMapping("/invoices")
     // end::postAnnotation[]
     // tag::postMethodSignature[]
-    public Invoice createInvoice(@RequestBody InvoiceDto invoiceDto) {
+    public Invoice createInvoice(@RequestBody @Valid InvoiceDto invoiceDto) {
     // end::postMethodSignature[]
     // tag::postDelegate[]
         return invoiceService.create(invoiceDto.getUserId(), invoiceDto.getAmount());
