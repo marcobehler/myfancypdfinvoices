@@ -2,6 +2,8 @@ package com.marcobehler.myfancypdfinvoices.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 public class InvoiceDto {
@@ -10,6 +12,8 @@ public class InvoiceDto {
     @NotBlank
     private String userId;
 
+    @Min(10)
+    @Max(50)
     private Integer amount;
 
     public String getUserId() {
