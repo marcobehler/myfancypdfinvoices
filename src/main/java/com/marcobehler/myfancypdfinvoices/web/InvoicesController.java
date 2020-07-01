@@ -17,14 +17,14 @@ import java.util.List;
 // tag::restControllerAnnotation[]
 @RestController
 @Validated
-public class MyFancyPdfInvoicesController {
+public class InvoicesController {
 // end::restControllerAnnotation[]
 // end::beginAnnotation[]
 
     // tag::invoiceServiceInjection[]
     private final InvoiceService invoiceService;
 
-    public MyFancyPdfInvoicesController(InvoiceService invoiceService) {
+    public InvoicesController(InvoiceService invoiceService) {
         this.invoiceService = invoiceService;
     }
     // end::invoiceServiceInjection[]
