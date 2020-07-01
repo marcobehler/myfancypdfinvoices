@@ -3,12 +3,12 @@ package com.marcobehler.myfancypdfinvoices.web;
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
 import com.marcobehler.myfancypdfinvoices.dto.InvoiceDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 // tag::restControllerAnnotation[]
@@ -34,14 +34,10 @@ public class MyFancyPdfInvoicesController {
     }
     // end::invoiceMethod[]
 
-    // tag::postAnnotation[]
+    // tag::createInvoiceMethod[]
     @PostMapping("/invoices")
-    // end::postAnnotation[]
-    // tag::postMethodSignature[]
-    public Invoice createInvoice(@RequestBody @Valid InvoiceDto invoiceDto) {
-    // end::postMethodSignature[]
-    // tag::postDelegate[]
-        return invoiceService.create(invoiceDto.getUserId(), invoiceDto.getAmount());
-    // end::postDelegate[]
+    public Invoice createInvoice(@RequestParam("user_id") @NotBlank String userId, @RequestParam @Min(10) @Max(50) Integer amount) {
+        return invoiceService.create(userId, amount);
     }
+    // end::createInvoiceMethod[]
 }
