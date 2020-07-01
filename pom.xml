@@ -32,6 +32,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.11.0</version>
         </dependency>
+        <!-- tag::jacksonXmlDependency[] -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <!-- end::jacksonXmlDependency[] -->
         <!-- tag::springContextDependency[] -->
         <dependency>
             <groupId>org.springframework</groupId>
