@@ -11,7 +11,7 @@ import javax.validation.ConstraintViolationException;
 
 // tag::adviceAnnotation[]
 @RestControllerAdvice
-public class GlobalControllerExceptionHandler {
+public class GlobalExceptionHandler {
 // end::adviceAnnotation[]
 
     // tag::handlemethodArgumentNotValid[]
