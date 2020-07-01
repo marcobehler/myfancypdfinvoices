@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
@@ -17,6 +18,14 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 public class MyFancyPdfInvoicesApplicationConfiguration {
 // end::enableWebMVCAnnotation[]
+
+    // tag::methodValidationPostProcessor[]
+    @Bean // <1>
+    public MethodValidationPostProcessor methodValidationPostProcessor() {
+        return new MethodValidationPostProcessor();
+    }
+    // end::methodValidationPostProcessor[]
+
 
     @Bean
     public ObjectMapper objectMapper() {
