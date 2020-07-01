@@ -1,8 +1,8 @@
-package com.marcobehler.myfancypdfinvoices.vo;
+package com.marcobehler.myfancypdfinvoices.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class InvoiceVO {
+public class InvoiceDto {
 
     @JsonProperty("user_id")
     private String userId;

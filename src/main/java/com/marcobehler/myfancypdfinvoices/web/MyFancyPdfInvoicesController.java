@@ -2,7 +2,7 @@ package com.marcobehler.myfancypdfinvoices.web;
 
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
-import com.marcobehler.myfancypdfinvoices.vo.InvoiceVO;
+import com.marcobehler.myfancypdfinvoices.dto.InvoiceDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,10 +37,10 @@ public class MyFancyPdfInvoicesController {
     @PostMapping("/invoices")
     // end::postAnnotation[]
     // tag::postMethodSignature[]
-    public Invoice createInvoice(@RequestBody InvoiceVO invoiceVO) {
+    public Invoice createInvoice(@RequestBody InvoiceDto invoiceDto) {
     // end::postMethodSignature[]
     // tag::postDelegate[]
-        return invoiceService.create(invoiceVO.getUserId(), invoiceVO.getAmount());
+        return invoiceService.create(invoiceDto.getUserId(), invoiceDto.getAmount());
     // end::postDelegate[]
     }
 }
