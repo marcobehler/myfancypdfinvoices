@@ -2,9 +2,12 @@ package com.marcobehler.myfancypdfinvoices.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotBlank;
+
 public class InvoiceDto {
 
     @JsonProperty("user_id")
+    @NotBlank
     private String userId;
 
     private Integer amount;
