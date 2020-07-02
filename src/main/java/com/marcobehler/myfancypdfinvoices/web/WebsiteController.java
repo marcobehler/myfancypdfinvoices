@@ -15,7 +15,7 @@ public class WebsiteController {
     public String homepage(Model model, @RequestParam(required = false) String username) {
         // end::homePageMethodDescription[]
         // tag::modelAttributes[]
-        model.addAttribute("username", username != null ? username : "stranger");
+        model.addAttribute("username", (username != null && !username.isBlank()) ? username : "stranger");
         model.addAttribute("currentDate", new Date());
         // end::modelAttributes[]
         return "index.html";
