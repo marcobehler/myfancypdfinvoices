@@ -5,6 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
+<div th:if="${invalidCredentials}">
+    Sorry, <span th:text="${loginForm.username}">[username]</span>, that doesn't look like you!
+</div>
+
 <!-- tag::formLine[] -->
 <form th:action="@{/login}" th:object="${loginForm}" method="post">
 <!-- end::formLine[] -->
