@@ -25,14 +25,6 @@ public class InvoicesController {
         this.invoiceService = invoiceService;
     }
 
-    // tag::homePageMethodDescription[]
-    @GetMapping("/")
-    public String homepage() {
-    // end::homePageMethodDescription[]
-    // tag::templateReturn[]
-        return "index.html";
-    // end::templateReturn[]
-    }
     // end::homepageMethod[]
     @GetMapping("/invoices")
     public List<Invoice> invoices() {
