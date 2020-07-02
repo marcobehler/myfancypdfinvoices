@@ -37,7 +37,7 @@ public class WebsiteController {
 
     // tag::loginPostMethodDescription[]
     @PostMapping("/login")
-    public String login(@ModelAttribute LoginForm loginForm){
+    public String login(@ModelAttribute LoginForm loginForm, Model model){
         // end::loginPostMethodDescription[]
         // tag::loginPostModelAttributes[]
         if (loginForm.getUsername().equals(loginForm.getPassword())) {
@@ -45,7 +45,8 @@ public class WebsiteController {
         }
         // end::loginPostModelAttributes[]
         // tag::loginPostReturn[]
-        return "redirect:login.html?error";
+        model.addAttribute("invalidCredentials", "true");
+        return "login.html";
         // tag::loginPostReturn[]
     }
 }
