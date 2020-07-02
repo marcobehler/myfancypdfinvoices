@@ -12,10 +12,10 @@ public class WebsiteController {
 
     // tag::homePageMethodDescription[]
     @GetMapping("/")
-    public String homepage(Model model, @RequestParam(required = false) String username) {
+    public String homepage(Model model, @RequestParam(required = false, defaultValue = "stranger") String username) {
         // end::homePageMethodDescription[]
         // tag::modelAttributes[]
-        model.addAttribute("username", (username != null && !username.isBlank()) ? username : "stranger");
+        model.addAttribute("username", username);
         model.addAttribute("currentDate", new Date());
         // end::modelAttributes[]
         return "index.html";
