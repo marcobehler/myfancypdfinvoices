@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>First Thymeleaf Template</title>
+    <title>Title</title>
 </head>
 <body>
-<h1>This is it!</h1>
-
-<p>Your very first Thymleaf template.</p>
+<p>Hello <!-- tag::usernameTag[] --><span th:text="${username}" th:remove="tag">[Username]</span><!-- end::usernameTag[] -->, this is the current date <!-- tag::dateTag[] --><span th:text="${#dates.format(currentDate, 'dd-MM-yyyy HH:mm')}">[currentDate]</span><!-- end::dateTag[] --></p>
+<!-- tag::ifTag[] -->
+<div th:if="${username.startsWith('z')}">Your name starts with a lower-case z, unusual!</div>
+<!-- end::ifTag[] -->
 </body>
 </html>
