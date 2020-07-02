@@ -7,9 +7,9 @@
 <body>
 <p>Hello
 <!-- tag::usernameTag[] -->
-<span th:text="${username}" th:remove="tag">[Username]</span>
+<span th:text="${username}" th:remove="tag">[Username]</span>,
 <!-- end::usernameTag[] -->
-, this is the current date
+this is the current date
 <!-- tag::dateTag[] -->
 <span th:text="${#dates.format(currentDate, 'dd-MM-yyyy HH:mm')}">[currentDate]</span>
 <!-- end::dateTag[] -->
