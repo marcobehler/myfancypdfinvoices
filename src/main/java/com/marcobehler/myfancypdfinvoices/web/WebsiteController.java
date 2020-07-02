@@ -1,5 +1,6 @@
 package com.marcobehler.myfancypdfinvoices.web;
 
+import com.marcobehler.myfancypdfinvoices.web.forms.LoginForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,5 +20,15 @@ public class WebsiteController {
         model.addAttribute("currentDate", new Date());
         // end::modelAttributes[]
         return "index.html";
+    }
+
+    // tag::loginMethodDescription[]
+    @GetMapping("/login")
+    public String login(Model model){
+        // end::loginMethodDescription[]
+        // tag::loginModelAttributes[]
+        model.addAttribute("loginForm", new LoginForm());
+        // end::loginModelAttributes[]
+        return "login.html";
     }
 }
