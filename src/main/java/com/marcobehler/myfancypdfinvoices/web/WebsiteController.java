@@ -4,11 +4,13 @@ import com.marcobehler.myfancypdfinvoices.web.forms.LoginForm;
 import org.apache.juli.logging.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.Date;
 
 @Controller
@@ -37,8 +39,13 @@ public class WebsiteController {
 
     // tag::loginPostMethodDescription[]
     @PostMapping("/login")
-    public String login(@ModelAttribute LoginForm loginForm, Model model){
-        // end::loginPostMethodDescription[]
+    public String login(@ModelAttribute @Valid LoginForm loginForm,BindingResult bindingResult,  Model model ){
+    // end::loginPostMethodDescription[]
+    // tag::bindingResult[]
+        if (bindingResult.hasErrors()) {
+            return "login.html";
+        }
+    // end::bindingResult[]
         // tag::loginPostModelAttributes[]
         if (loginForm.getUsername().equals(loginForm.getPassword())) {
             return "redirect:/";

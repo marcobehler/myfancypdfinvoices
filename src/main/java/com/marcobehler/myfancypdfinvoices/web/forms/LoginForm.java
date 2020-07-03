@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 public class LoginForm {
 
     @NotBlank
-    @Size(min = 5,  max = 7)
+    @Size(min = 5,  max = 20)
     private String username, password;
 
     public String getUsername() {

@@ -17,7 +17,10 @@
 
 <!-- tag::inputFieldLines[] -->
     <p>Username: <input type="text" th:field="*{username}"/></p>
+    <p style="background-color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+
     <p>Password: <input type="password" th:field="*{password}"/></p>
+    <p style="background-color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
 <!-- end::inputFieldLines[] -->
     <p><input type="submit" value="Submit"/></p>
 </form>
