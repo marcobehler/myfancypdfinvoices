@@ -1,7 +1,12 @@
 package com.marcobehler.myfancypdfinvoices.web.forms;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class LoginForm {
 
+    @NotBlank
+    @Size(min = 5,  max = 7)
     private String username, password;
 
     public String getUsername() {
