@@ -2,22 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<!-- tag::parentTag[] -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<!-- end::parentTag[] -->
 	<groupId>com.marcobehler</groupId>
 	<artifactId>myfancypdfinvoices-springboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>myfancypdfinvoices-springboot</name>
 	<description>Demo project for Spring Boot</description>
 
+	<!-- tag::propertiesTag[] -->
 	<properties>
 		<java.version>14</java.version>
 	</properties>
+	<!-- end::propertiesTag[] -->
 
+	<!-- tag::dependenciesTag[] -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -36,7 +41,9 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+	<!-- end::dependenciesTag[] -->
 
+	<!-- tag::pluginsTag[] -->
 	<build>
 		<plugins>
 			<plugin>
@@ -45,5 +52,6 @@
 			</plugin>
 		</plugins>
 	</build>
+	<!-- end::pluginsTag[] -->
 
 </project>
