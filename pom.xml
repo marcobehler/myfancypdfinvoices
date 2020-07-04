@@ -46,6 +46,13 @@
             <version>6.2.7</version>
         </dependency>
         <!-- end::springContextDependency[] -->
+        <!-- tag::springJdbcDependency[] -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>6.2.7</version>
+        </dependency>
+        <!-- end::springJdbcDependency[] -->
         <!-- tag::springMvcDependency[] -->
         <dependency>
             <groupId>org.springframework</groupId>
