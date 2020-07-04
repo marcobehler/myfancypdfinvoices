@@ -39,7 +39,7 @@ public class ApplicationConfiguration {
         JdbcDataSource ds = new JdbcDataSource();
         // end::newDataSourceLine[]
         // tag::dataSourceUrlLine[]
-        ds.setURL("jdbc:h2:~/myfirstspringdatabase");
+        ds.setURL("jdbc:h2:~/myFirstH2Database");
         // end::dataSourceUrlLine[]
         // tag::dataSourceUserLine[]
         ds.setUser("sa");
