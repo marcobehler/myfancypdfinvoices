@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -48,8 +50,11 @@ public class InvoiceService {
     }
     // end::preDestroy[]
 
-    // tag::findAllMethod[]
+    // tag::findAllMethodHeaderTx[]
+    @Transactional
     public List<Invoice> findAll() {
+        System.out.println("Is a database transaction open? = " + TransactionSynchronizationManager.isActualTransactionActive());
+    // end::findAllMethodHeaderTx[]
         return jdbcTemplate.query("select id, user_id, pdf_url, amount from invoices", (resultSet, rowNum) -> {
             Invoice invoice = new Invoice();
             invoice.setId(resultSet.getObject("id").toString());
@@ -61,8 +66,11 @@ public class InvoiceService {
     }
     // end::findAllMethod[]
 
-    // tag::createMethod[]
+    // tag::createMethodHeaderTx[]
+    @Transactional
     public Invoice create(String userId, Integer amount) {
+        System.out.println("Is a database transaction open? = " + TransactionSynchronizationManager.isActualTransactionActive());
+    // end::createMethodHeaderTx[]
         // tag::createStaticPdfUrl[]
         String generatedPdfUrl = cdnUrl + "/images/default/sample.pdf";
         // end::createStaticPdfUrl[]
