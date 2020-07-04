@@ -46,7 +46,7 @@
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
-		<!-- tag::jackson-xml[] -->
+		<!-- end::jackson-xml[] -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
