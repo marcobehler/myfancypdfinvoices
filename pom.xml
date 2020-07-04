@@ -72,6 +72,13 @@
             <version>3.0.11.RELEASE</version>
         </dependency>
         <!-- end::thymeleafDependency[] -->
+        <!-- tag::h2Dependency[] -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+        </dependency>
+        <!-- end::h2Dependency[] -->
     </dependencies>
 
     <build>
