@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -21,10 +22,11 @@ import javax.sql.DataSource;
 @PropertySource("classpath:/application.properties")
 @PropertySource(value = "classpath:/application-${spring.profiles.active}.properties"
                     , ignoreResourceNotFound = true)
-// tag::enableWebMVCAnnotation[]
 @EnableWebMvc
+// tag::enableTransactionManagement[]
+@EnableTransactionManagement
 public class ApplicationConfiguration {
-// end::enableWebMVCAnnotation[]
+// end::enableTransactionManagement[]
 
     // tag::methodValidationPostProcessor[]
     @Bean // <1>
