@@ -84,7 +84,7 @@ public class InvoiceService {
         // end::jdbcTemplateUpdate[]
 
         // tag::uuid[]
-        String uuid = !keyHolder.getKeys().isEmpty() ? ((KeyHolder) keyHolder.getKeys().values().iterator().next()).toString()
+        String uuid = !keyHolder.getKeys().isEmpty() ? ((UUID) keyHolder.getKeys().values().iterator().next()).toString()
                 : null;
         // end::uuid[]
 
