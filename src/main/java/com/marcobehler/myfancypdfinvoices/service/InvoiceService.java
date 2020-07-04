@@ -4,11 +4,16 @@ package com.marcobehler.myfancypdfinvoices.service;
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class InvoiceService {
@@ -58,7 +63,39 @@ public class InvoiceService {
 
     // tag::createMethod[]
     public Invoice create(String userId, Integer amount) {
-        throw new IllegalStateException("not yet implemented");
+        // tag::createStaticPdfUrl[]
+        String generatedPdfUrl = cdnUrl + "/images/default/sample.pdf";
+        // end::createStaticPdfUrl[]
+
+        // tag::createKeyholder[]
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        // end::createKeyholder[]
+
+        // tag::jdbcTemplateUpdate[]
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection
+                    .prepareStatement("insert into invoices (user_id, pdf_url, amount) values (?, ?, ?)",
+                            Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, userId);  // <3>
+            ps.setString(2, generatedPdfUrl);
+            ps.setInt(3, amount);
+            return ps;
+        }, keyHolder);
+        // end::jdbcTemplateUpdate[]
+
+        // tag::uuid[]
+        String uuid = !keyHolder.getKeys().isEmpty() ? ((KeyHolder) keyHolder.getKeys().values().iterator().next()).toString()
+                : null;
+        // end::uuid[]
+
+        // tag::invoicePojo[]
+        Invoice invoice = new Invoice();
+        invoice.setId(uuid);
+        invoice.setPdfUrl(generatedPdfUrl);
+        invoice.setAmount(amount);
+        invoice.setUserId(userId);
+        return invoice;
+        // end::invoicePojo[]
     }
     // end::createMethod[]
 }
