@@ -34,6 +34,18 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- tag::starter-spring-boot-databases[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId> <!--1-->
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId> <!--2-->
+			<artifactId>h2</artifactId>
+		</dependency>
+		<!-- end::starter-spring-boot-databases[] -->
+
 		<!-- tag::starter-validation[] -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
