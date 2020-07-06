@@ -13,14 +13,19 @@ import org.vibur.dbcp.ViburDataSource;
 
 import javax.sql.DataSource;
 
+// tag::springBootAnnotations[]
 @Configuration  // <1>
 @ConditionalOnClass(ViburDataSource.class)
 @ConditionalOnMissingBean(DataSource.class)
 @ConditionalOnProperty(name = "marcobehler.datasource.type", havingValue = "org.vibur.dbcp.ViburDBCPDataSource")
 @AutoConfigureBefore(DataSourceAutoConfiguration.class)
+// end::springBootAnnotations[]
+// tag::configurationProperties[]
 @EnableConfigurationProperties(MarcoBehlerDataSourceProperties.class)
 public class MarcoBehlerAutoConfiguration {
+// end::configurationProperties[]
 
+    // tag::dataSource[]
     @Bean
     public ViburDBCPDataSource dataSource(MarcoBehlerDataSourceProperties properties) {
         ViburDBCPDataSource ds = new ViburDBCPDataSource();
@@ -31,4 +36,5 @@ public class MarcoBehlerAutoConfiguration {
         ds.start();
         return ds;
     }
+    // end::dataSource[]
 }
