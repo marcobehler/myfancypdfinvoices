@@ -2,14 +2,18 @@ package com.marcobehler.springboot.starter;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+// tag::autoConfigurationHeader[]
 @ConfigurationProperties(prefix = "marcobehler.datasource")
 public class MarcoBehlerDataSourceProperties {
+// end::autoConfigurationHeader[]
 
+    // tag::autoConfigurationFields[]
     private String username;
     private String password;
     private String type;
     private String url;
     private String driverClassName;
+    // end::autoConfigurationFields[]
 
     public String getUsername() {
         return username;
