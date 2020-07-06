@@ -24,14 +24,10 @@ public class MarcoBehlerAutoConfiguration {
     @Bean
     public ViburDBCPDataSource dataSource(MarcoBehlerDataSourceProperties properties) {
         ViburDBCPDataSource ds = new ViburDBCPDataSource();
-
         ds.setJdbcUrl(properties.getUrl());
         ds.setUsername(properties.getUsername());
         ds.setPassword(properties.getPassword());
-
-        //
         ds.setDriverClassName(properties.getDriverClassName());
-
         ds.start();
         return ds;
     }
