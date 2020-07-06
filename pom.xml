@@ -68,6 +68,14 @@
 		</dependency>
 		<!-- end::own-autoconfiguration[] -->
 
+		<!-- tag::vibur-dependency[] -->
+		<dependency>
+			<groupId>org.vibur</groupId>
+			<artifactId>vibur-dbcp</artifactId>
+			<version>25.0</version>
+		</dependency>
+		<!-- end::vibur-dependency[] -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
