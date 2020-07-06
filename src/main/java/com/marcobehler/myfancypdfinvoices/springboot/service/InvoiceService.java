@@ -4,27 +4,35 @@ package com.marcobehler.myfancypdfinvoices.springboot.service;
 import com.marcobehler.myfancypdfinvoices.springboot.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.springboot.model.User;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @Component
 public class InvoiceService {
 
-    private List<Invoice> invoices = new CopyOnWriteArrayList<>();
+    private final JdbcTemplate jdbcTemplate;
 
     private final UserService userService;
-    // tag::cdnUrlConstructor[]
+
     private final String cdnUrl;
 
-    public InvoiceService(UserService userService, @Value("${cdn.url}") String cdnUrl) {
+    // tag::jdbcTemplateConstructor[]
+    public InvoiceService(UserService userService, JdbcTemplate jdbcTemplate, @Value("${cdn.url}") String cdnUrl) {
         this.userService = userService;
         this.cdnUrl = cdnUrl;
+        this.jdbcTemplate = jdbcTemplate;
     }
-    // end::cdnUrlConstructor[]
+    // end::jdbcTemplateConstructor[]
 
     // tag::postConstruct[]
     @PostConstruct
@@ -42,21 +50,54 @@ public class InvoiceService {
     }
     // end::preDestroy[]
 
+    // tag::findAllMethod[]
     public List<Invoice> findAll() {
-        return invoices;
+        return jdbcTemplate.query("select id, user_id, pdf_url, amount from invoices", (resultSet, rowNum) -> {
+            Invoice invoice = new Invoice();
+            invoice.setId(resultSet.getObject("id").toString());
+            invoice.setPdfUrl(resultSet.getString("pdf_url"));
+            invoice.setUserId(resultSet.getString("user_id"));
+            invoice.setAmount(resultSet.getInt("amount"));
+            return invoice;
+        });
     }
+    // end::findAllMethod[]
 
+    // tag::createMethod[]
     public Invoice create(String userId, Integer amount) {
-        User user = userService.findById(userId);
-        if (user == null) {
-            throw new IllegalStateException();
-        }
+        // tag::createStaticPdfUrl[]
+        String generatedPdfUrl = cdnUrl + "/images/default/sample.pdf";
+        // end::createStaticPdfUrl[]
 
-        // tag::cdnUrlUsed[]
-        // TODO real pdf creation and storing it on network server
-        Invoice invoice = new Invoice(userId, amount, cdnUrl + "/images/default/sample.pdf");
-        invoices.add(invoice);
+        // tag::createKeyholder[]
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        // end::createKeyholder[]
+
+        // tag::jdbcTemplateUpdate[]
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection
+                    .prepareStatement("insert into invoices (user_id, pdf_url, amount) values (?, ?, ?)",
+                            Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, userId);  // <3>
+            ps.setString(2, generatedPdfUrl);
+            ps.setInt(3, amount);
+            return ps;
+        }, keyHolder);
+        // end::jdbcTemplateUpdate[]
+
+        // tag::uuid[]
+        String uuid = !keyHolder.getKeys().isEmpty() ? ((UUID) keyHolder.getKeys().values().iterator().next()).toString()
+                : null;
+        // end::uuid[]
+
+        // tag::invoicePojo[]
+        Invoice invoice = new Invoice();
+        invoice.setId(uuid);
+        invoice.setPdfUrl(generatedPdfUrl);
+        invoice.setAmount(amount);
+        invoice.setUserId(userId);
         return invoice;
-        // end::cdnUrlUsed[]
+        // end::invoicePojo[]
     }
+    // end::createMethod[]
 }
