@@ -50,11 +50,11 @@ public class InvoiceService {
     }
     // end::preDestroy[]
 
-    // tag::findAllMethodHeaderTx[]
+    // tag::findAllMethod[]
     @Transactional
     public List<Invoice> findAll() {
         System.out.println("Is a database transaction open? = " + TransactionSynchronizationManager.isActualTransactionActive());
-        // end::findAllMethodHeaderTx[]
+
         return jdbcTemplate.query("select id, user_id, pdf_url, amount from invoices", (resultSet, rowNum) -> {
             Invoice invoice = new Invoice();
             invoice.setId(resultSet.getObject("id").toString());
@@ -66,11 +66,10 @@ public class InvoiceService {
     }
     // end::findAllMethod[]
 
-    // tag::createMethodHeaderTx[]
+    // tag::createMethod[]
     @Transactional
     public Invoice create(String userId, Integer amount) {
         System.out.println("Is a database transaction open? = " + TransactionSynchronizationManager.isActualTransactionActive());
-        // end::createMethodHeaderTx[]
         // tag::createStaticPdfUrl[]
         String generatedPdfUrl = cdnUrl + "/images/default/sample.pdf";
         // end::createStaticPdfUrl[]
