@@ -5,10 +5,7 @@ package com.marcobehler.myfancypdfinvoices.springboot.web;
 import com.marcobehler.myfancypdfinvoices.springboot.dto.InvoiceDto;
 import com.marcobehler.myfancypdfinvoices.springboot.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.springboot.service.InvoiceService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -33,6 +30,11 @@ public class InvoicesController {
         return invoiceService.findAll();
     }
     // end::invoiceMethod[]
+
+    @GetMapping("/invoices/user/{userId}")
+    public Iterable<Invoice> invoices(@PathVariable String userId) {
+        return invoiceService.findByUserId(userId);
+    }
 
     // tag::createInvoiceMethod[]
     @PostMapping("/invoices")
