@@ -1,4 +1,4 @@
-package com.marcobehler.myfancypdfinvoices.springboot.respositories;
+package com.marcobehler.myfancypdfinvoices.springboot.repository;
 
 import com.marcobehler.myfancypdfinvoices.springboot.model.Invoice;
 import org.springframework.data.repository.CrudRepository;
