@@ -34,6 +34,13 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- tag::starter-spring-data-jdbc[] -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jdbc</artifactId>
+		</dependency>
+		<!-- end::starter-spring-data-jdbc[] -->
+
 		<!-- tag::starter-spring-boot-databases[] -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId> <!--1-->
