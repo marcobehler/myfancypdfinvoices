@@ -15,13 +15,10 @@ public class InvoiceService {
 
     private final InvoiceRepository invoiceRepository;
 
-    private final UserService userService;
-
     private final String cdnUrl;
 
     // tag::jdbcTemplateConstructor[]
-    public InvoiceService(UserService userService, InvoiceRepository invoiceRepository, @Value("${cdn.url}") String cdnUrl) {
-        this.userService = userService;
+    public InvoiceService(InvoiceRepository invoiceRepository, @Value("${cdn.url}") String cdnUrl) {
         this.cdnUrl = cdnUrl;
         this.invoiceRepository = invoiceRepository;
     }
