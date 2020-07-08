@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 public interface InvoiceRepository extends CrudRepository<Invoice, String> {
 
     // tag::queryAnnotation[]
-    @Query("SELECT id, pdf_url, user_id, amount FROM invoices where user_id = :userId")
+    @Query("SELECT id, pdf_url, user_id, amount FROM \"invoices\" where user_id = :userId")
     // end::queryAnnotation[]
     // tag::method[]
     Iterable<Invoice> findByUserId(@Param("userId") String userId);
