@@ -26,12 +26,10 @@ public class InvoicesController {
     }
     // end::invoiceServiceInjection[]
 
-    // tag::getAnnotation[]
-    @GetMapping("/invoices")
-    // @RequestMapping(value = "/invoices", method = RequestMethod.GET)
     // tag::invoiceMethod[]
+    @GetMapping("/invoices")
     public Iterable<Invoice> invoices() {
-        // end::getAnnotation[]
+
         return invoiceService.findAll();
     }
     // end::invoiceMethod[]
