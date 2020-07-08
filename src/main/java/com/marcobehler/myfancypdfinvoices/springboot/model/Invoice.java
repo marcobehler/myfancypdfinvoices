@@ -1,12 +1,20 @@
 package com.marcobehler.myfancypdfinvoices.springboot.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.UUID;
 
+// tag::tableAnnotation[]
+@Table("invoices")
 public class Invoice {
+// end::tableAnnotation[]
 
+    // tag::idAnnotation[]
+    @Id
     private String id;
+    // end::idAnnotation[]
 
     @JsonProperty("user_id")
     private String userId;
