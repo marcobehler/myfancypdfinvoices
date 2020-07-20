@@ -60,21 +60,6 @@
 		</dependency>
 		<!-- end::jackson-xml[] -->
 
-		<!-- tag::own-autoconfiguration[] -->
-		<dependency>
-			<groupId>com.marcobehler</groupId>
-			<artifactId>marcobehler-spring-boot-starter</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
-		<!-- end::own-autoconfiguration[] -->
-
-		<!-- tag::vibur-dependency[] -->
-		<dependency>
-			<groupId>org.vibur</groupId>
-			<artifactId>vibur-dbcp</artifactId>
-			<version>25.0</version>
-		</dependency>
-		<!-- end::vibur-dependency[] -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
