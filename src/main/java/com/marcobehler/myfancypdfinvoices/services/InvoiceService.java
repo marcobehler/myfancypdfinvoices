@@ -8,6 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class InvoiceService {
 
+
     private final UserService userService;
 
     private List<Invoice> invoices = new CopyOnWriteArrayList<>();
