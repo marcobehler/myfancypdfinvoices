@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.3</version>
+		<version>2.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<!-- end::parentTag[] -->
@@ -18,16 +18,12 @@
 
 	<!-- tag::propertiesTag[] -->
 	<properties>
-		<java.version>14</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<!-- end::propertiesTag[] -->
 
 	<!-- tag::dependenciesTag[] -->
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -36,16 +32,13 @@
 
 		<!-- tag::starter-spring-data-jdbc[] -->
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jdbc</artifactId>
+			<groupId>org.springframework.boot</groupId> <!--`-->
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
+
 		<!-- end::starter-spring-data-jdbc[] -->
 
 		<!-- tag::starter-spring-boot-databases[] -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId> <!--1-->
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId> <!--2-->
