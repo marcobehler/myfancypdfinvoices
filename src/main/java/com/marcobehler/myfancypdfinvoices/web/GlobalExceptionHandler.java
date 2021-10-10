@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String handlemethodArgumentNotValid(MethodArgumentNotValidException exception) { // <4>
         // TODO you can choose to return your custom object here, which will then get transformed to json/xml etc.
-        return "Sorry, that was not quite right: " + exception.getMessage();
+        return "Sorry, that was not quite right: @Valid Bean Validation error " + exception.getMessage();
     }
     // end::handlemethodArgumentNotValid[]
 
@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     public String handleConstraintViolation(ConstraintViolationException exception) { // <4>
         // TODO you can choose to return your custom object here, which will then get transformed to json/xml etc.
-        return "Sorry, that was not quite right: " + exception.getMessage();
+        return "Sorry, that was not quite right: @RequestParams validation error " + exception.getMessage();
     }
     // end::handleConstraintViolation[]
 }
