@@ -13,7 +13,6 @@ import jakarta.annotation.PostConstruct;
 // end::profileAnnotation[]
 public class DummyInvoiceServiceLoader {
 
-
     // tag::constructorDi[]
     private final InvoiceService invoiceService;
 
