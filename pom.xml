@@ -16,11 +16,11 @@
 
     <dependencies>
         <!-- tag::annotationApi[] -->
-        <dependency>
+       <!-- <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>3.0.0</version>
-        </dependency>
+        </dependency>-->
         <!-- end::annotationApi[] -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -51,7 +51,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.4.2</version>
                 <configuration>
                     <archive>
                         <manifest>
