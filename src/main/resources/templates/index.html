@@ -11,7 +11,7 @@
 <!-- end::usernameTag[] -->
 this is the current date
 <!-- tag::dateTag[] -->
-<span th:text="${#dates.format(currentDate, 'dd-MM-yyyy HH:mm')}">[currentDate]</span>
+<span th:text="${#temporals.format(currentDate, 'dd-MM-yyyy HH:mm')}">[currentDate]</span>
 <!-- end::dateTag[] -->
 </p>
 <!-- tag::ifTag[] -->
