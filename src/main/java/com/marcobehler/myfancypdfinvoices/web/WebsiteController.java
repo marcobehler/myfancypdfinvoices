@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 public class WebsiteController {
@@ -16,7 +16,7 @@ public class WebsiteController {
         // end::homePageMethodDescription[]
         // tag::modelAttributes[]
         model.addAttribute("username", username);
-        model.addAttribute("currentDate", LocalDate.now());
+        model.addAttribute("currentDate", LocalDateTime.now());
         // end::modelAttributes[]
         return "index.html";
     }
