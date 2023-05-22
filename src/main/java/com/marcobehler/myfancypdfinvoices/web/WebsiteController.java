@@ -1,7 +1,6 @@
 package com.marcobehler.myfancypdfinvoices.web;
 
 import com.marcobehler.myfancypdfinvoices.web.forms.LoginForm;
-import org.apache.juli.logging.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,8 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
-import java.util.Date;
+import jakarta.validation.Valid;
+
+import java.time.LocalDateTime;
 
 @Controller
 public class WebsiteController {
@@ -22,7 +22,7 @@ public class WebsiteController {
         // end::homePageMethodDescription[]
         // tag::modelAttributes[]
         model.addAttribute("username", username);
-        model.addAttribute("currentDate", new Date());
+        model.addAttribute("currentDate", LocalDateTime.now());
         // end::modelAttributes[]
         return "index.html";
     }
