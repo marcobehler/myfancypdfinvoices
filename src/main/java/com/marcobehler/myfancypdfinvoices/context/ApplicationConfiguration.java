@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.thymeleaf.spring6.SpringTemplateEngine;
@@ -39,7 +40,7 @@ public class ApplicationConfiguration {
         JdbcDataSource ds = new JdbcDataSource();
         // end::newDataSourceLine[]
         // tag::dataSourceUrlLine[]
-        ds.setURL("jdbc:h2:~/myFirstH2Database");
+        ds.setURL("jdbc:h2:~/myFirstH2Database;INIT=RUNSCRIPT FROM 'classpath:schema.sql'");
         // end::dataSourceUrlLine[]
         // tag::dataSourceUserLine[]
         ds.setUser("sa");
@@ -50,6 +51,13 @@ public class ApplicationConfiguration {
         return ds;
     }
     // end::dataSource[]
+
+    // tag::jdbcTemplate[]
+    @Bean
+    public JdbcTemplate jdbcTemplate() {
+        return new JdbcTemplate(dataSource());
+    }
+    // end::jdbcTemplate[]
 
     @Bean
     public ObjectMapper objectMapper() {
