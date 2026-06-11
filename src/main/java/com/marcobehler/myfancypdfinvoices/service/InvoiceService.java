@@ -3,6 +3,7 @@ package com.marcobehler.myfancypdfinvoices.service;
 
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.model.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
@@ -16,10 +17,14 @@ public class InvoiceService {
     private List<Invoice> invoices = new CopyOnWriteArrayList<>();
 
     private final UserService userService;
+    // tag::cdnUrlConstructor[]
+    private final String cdnUrl;
 
-    public InvoiceService(UserService userService) {
+    public InvoiceService(UserService userService, @Value("${cdn.url}") String cdnUrl) {
         this.userService = userService;
+        this.cdnUrl = cdnUrl;
     }
+    // end::cdnUrlConstructor[]
 
     // tag::postConstruct[]
     @PostConstruct
@@ -47,10 +52,11 @@ public class InvoiceService {
             throw new IllegalStateException();
         }
 
-
+        // tag::cdnUrlUsed[]
         // TODO real pdf creation and storing it on network server
-        Invoice invoice = new Invoice(userId, amount, "http://www.africau.edu/images/default/sample.pdf");
+        Invoice invoice = new Invoice(userId, amount, cdnUrl + "/images/default/sample.pdf");
         invoices.add(invoice);
         return invoice;
+        // end::cdnUrlUsed[]
     }
 }

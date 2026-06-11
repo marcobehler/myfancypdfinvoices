@@ -15,7 +15,6 @@ public class ApplicationLauncher {
         tomcat.getConnector();
 
         Context ctx = tomcat.addContext("", null);
-        ctx.setParentClassLoader(ApplicationLauncher.class.getClassLoader());
         Wrapper servlet = Tomcat.addServlet(ctx, "myFirstServlet", new MyFancyPdfInvoicesServlet());
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/*");
