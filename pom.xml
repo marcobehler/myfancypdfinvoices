@@ -16,11 +16,11 @@
 
     <dependencies>
         <!-- tag::annotationApi[] -->
-        <dependency>
+    <!--    <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>3.0.0</version>
-        </dependency>
+        </dependency>-->
         <!-- end::annotationApi[] -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -60,11 +60,18 @@
             <version>9.1.0.Final</version>
         </dependency>
         <dependency>
-            <groupId>jakarta.el</groupId>
-            <artifactId>jakarta.el-api</artifactId>
-            <version>6.0.1</version>
+            <groupId>org.glassfish.expressly</groupId>
+            <artifactId>expressly</artifactId>
+            <version>6.0.0</version>
         </dependency>
         <!-- end::hibernateValidatorDependency[] -->
+        <!-- tag::thymeleafDependency[] -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring6</artifactId> <!-- 1 -->
+            <version>3.1.5.RELEASE</version>
+        </dependency>
+        <!-- end::thymeleafDependency[] -->
     </dependencies>
 
     <build>
