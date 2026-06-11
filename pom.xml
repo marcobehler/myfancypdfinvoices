@@ -46,6 +46,13 @@
             <version>7.0.8</version>
         </dependency>
         <!-- end::springContextDependency[] -->
+        <!-- tag::springJdbcDependency[] -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>7.0.8</version>
+        </dependency>
+        <!-- end::springJdbcDependency[] -->
         <!-- tag::springMvcDependency[] -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -72,6 +79,13 @@
             <version>3.1.5.RELEASE</version>
         </dependency>
         <!-- end::thymeleafDependency[] -->
+        <!-- tag::h2Dependency[] -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.4.240</version>
+        </dependency>
+        <!-- end::h2Dependency[] -->
     </dependencies>
 
     <build>
