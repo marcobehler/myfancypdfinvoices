@@ -15,13 +15,6 @@
     </properties>
 
     <dependencies>
-        <!-- tag::annotationApi[] -->
-     <!--   <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <version>3.0.0</version>
-        </dependency>-->
-        <!-- end::annotationApi[] -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
