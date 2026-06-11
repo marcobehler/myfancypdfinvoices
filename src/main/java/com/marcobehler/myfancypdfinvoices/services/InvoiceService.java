@@ -1,5 +1,6 @@
 package com.marcobehler.myfancypdfinvoices.services;
 
+import com.marcobehler.myfancypdfinvoices.context.Application;
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.model.User;
 
@@ -15,7 +16,7 @@ public class InvoiceService {
     }
 
     public Invoice create(String userId, Integer amount) {
-        User user = new UserService().findById(userId);
+        User user = Application.userService.findById(userId);
         if (user == null) {
             throw new IllegalStateException();
         }
