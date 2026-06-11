@@ -1,18 +1,10 @@
-package com.marcobehler.myfancypdfinvoices.model;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package com.marcobehler;
 
 import java.util.UUID;
 
 public class Invoice {
 
-    private String id;
-
-    @JsonProperty("user_id")
-    private String userId;
-
-    @JsonProperty("pdf_url")
-    private String pdfUrl;
+    private String id, userId, pdfUrl;
 
     private Integer amount;
 

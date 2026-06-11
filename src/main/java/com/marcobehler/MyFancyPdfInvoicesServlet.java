@@ -1,19 +1,13 @@
-package com.marcobehler.myfancypdfinvoices.web;
+package com.marcobehler;
 
 import tools.jackson.databind.ObjectMapper;
-import com.marcobehler.myfancypdfinvoices.model.Invoice;
-import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 public class MyFancyPdfInvoicesServlet extends HttpServlet {
-
-    private InvoiceService invoiceService = new InvoiceService();
-    private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -22,10 +16,10 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
             String userId = request.getParameter("user_id");
             Integer amount = Integer.valueOf(request.getParameter("amount"));
 
-            Invoice invoice = invoiceService.create(userId, amount);
+            Invoice invoice = new InvoiceService().create(userId, amount);
 
             response.setContentType("application/json; charset=UTF-8");
-            String json = objectMapper.writeValueAsString(invoice);
+            String json = new ObjectMapper().writeValueAsString(invoice);
             response.getWriter().print(json);
         } else {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -45,8 +39,7 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
                             "</html>");
         } else if (request.getRequestURI().equalsIgnoreCase("/invoices")) {
             response.setContentType("application/json; charset=UTF-8");
-            List<Invoice> invoices = invoiceService.findAll();  // <2>
-            response.getWriter().print(objectMapper.writeValueAsString(invoices));  // <3>
+            response.getWriter().print("[]");
         }
     }
 }
