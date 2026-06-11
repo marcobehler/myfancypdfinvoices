@@ -33,7 +33,9 @@ public class InvoiceService {
         return invoice;
     }
 
+    // tag::userServiceGetter[]
     public UserService getUserService() {
         return userService;
     }
+    // end::userServiceGetter[]
 }
