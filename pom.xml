@@ -16,11 +16,11 @@
 
     <dependencies>
         <!-- tag::annotationApi[] -->
-       <!-- <dependency>
+        <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>3.0.0</version>
-        </dependency>-->
+        </dependency>
         <!-- end::annotationApi[] -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -32,13 +32,6 @@
             <artifactId>jackson-databind</artifactId>
             <version>3.1.4</version>
         </dependency>
-        <!-- tag::jacksonXmlDependency[] -->
-        <dependency>
-            <groupId>tools.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-            <version>3.1.4</version>
-        </dependency>
-        <!-- end::jacksonXmlDependency[] -->
         <!-- tag::springContextDependency[] -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -53,18 +46,6 @@
             <version>7.0.8</version>
         </dependency>
         <!-- end::springMvcDependency[] -->
-        <!-- tag::hibernateValidatorDependency[] -->
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>9.1.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.expressly</groupId>
-            <artifactId>expressly</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <!-- end::hibernateValidatorDependency[] -->
     </dependencies>
 
     <build>
