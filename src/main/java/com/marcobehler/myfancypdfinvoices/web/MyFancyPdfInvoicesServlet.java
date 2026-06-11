@@ -1,15 +1,44 @@
 package com.marcobehler.myfancypdfinvoices.web;
 
-import com.marcobehler.myfancypdfinvoices.context.Application;
+import tools.jackson.databind.ObjectMapper;
+import com.marcobehler.myfancypdfinvoices.context.MyFancyPdfInvoicesApplicationConfiguration;
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
+import com.marcobehler.myfancypdfinvoices.service.InvoiceService;
+import com.marcobehler.myfancypdfinvoices.service.UserService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+// tag::initMethodLarge[]
 public class MyFancyPdfInvoicesServlet extends HttpServlet {
+
+    // tag::injectedFields[]
+    private UserService userService;
+    private ObjectMapper objectMapper;
+    private InvoiceService invoiceService;
+    // end::injectedFields[]
+
+    // tag::initMethod[]
+    @Override
+    public void init() throws ServletException {
+        AnnotationConfigApplicationContext ctx
+                = new AnnotationConfigApplicationContext(MyFancyPdfInvoicesApplicationConfiguration.class);
+
+        // tag::shutdownhook[]
+        ctx.registerShutdownHook();
+        // end::shutdownhook[]
+
+        this.userService = ctx.getBean(UserService.class);
+        this.objectMapper = ctx.getBean(ObjectMapper.class);
+        this.invoiceService = ctx.getBean(InvoiceService.class);
+    }
+    // end::initMethod[]
+// end::initMethodLarge[]
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -18,11 +47,13 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
             String userId = request.getParameter("user_id");
             Integer amount = Integer.valueOf(request.getParameter("amount"));
 
-            Invoice invoice = Application.invoiceService.create(userId, amount);
+            // tag::refactoredMethod1[]
+            Invoice invoice = invoiceService.create(userId, amount);
 
             response.setContentType("application/json; charset=UTF-8");
-            String json = Application.objectMapper.writeValueAsString(invoice);
+            String json = objectMapper.writeValueAsString(invoice);
             response.getWriter().print(json);
+            // end::refactoredMethod1[]
         } else {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
@@ -40,9 +71,11 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
                             "</body>\n" +
                             "</html>");
         } else if (request.getRequestURI().equalsIgnoreCase("/invoices")) {
+            // tag::refactoredMethod2[]
             response.setContentType("application/json; charset=UTF-8");
-            List<Invoice> invoices = Application.invoiceService.findAll();
-            response.getWriter().print(Application.objectMapper.writeValueAsString(invoices));
+            List<Invoice> invoices = invoiceService.findAll();
+            response.getWriter().print(objectMapper.writeValueAsString(invoices));
+            // end::refactoredMethod2[]
         }
     }
 }
