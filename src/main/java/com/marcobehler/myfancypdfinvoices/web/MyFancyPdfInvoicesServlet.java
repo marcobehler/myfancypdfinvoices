@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+// tag::initMethodLarge[]
 public class MyFancyPdfInvoicesServlet extends HttpServlet {
 
     // tag::injectedFields[]
@@ -27,12 +28,17 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
     public void init() throws ServletException {
         AnnotationConfigApplicationContext ctx
                 = new AnnotationConfigApplicationContext(MyFancyPdfInvoicesApplicationConfiguration.class);
+
+        // tag::shutdownhook[]
+        ctx.registerShutdownHook();
+        // end::shutdownhook[]
+
         this.userService = ctx.getBean(UserService.class);
         this.objectMapper = ctx.getBean(ObjectMapper.class);
         this.invoiceService = ctx.getBean(InvoiceService.class);
     }
     // end::initMethod[]
-
+// end::initMethodLarge[]
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
