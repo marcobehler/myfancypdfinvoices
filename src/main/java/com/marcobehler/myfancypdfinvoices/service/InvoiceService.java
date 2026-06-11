@@ -5,6 +5,7 @@ import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.model.User;
 import org.springframework.stereotype.Component;
 
+import jakarta.annotation.PostConstruct;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -18,6 +19,14 @@ public class InvoiceService {
     public InvoiceService(UserService userService) {
         this.userService = userService;
     }
+
+    // tag::postConstruct[]
+    @PostConstruct
+    public void init() {
+        System.out.println("Fetching PDF Template from S3...");
+        // TODO download from s3 and save locally
+    }
+    // end::postConstruct[]
 
     public List<Invoice> findAll() {
         return invoices;
