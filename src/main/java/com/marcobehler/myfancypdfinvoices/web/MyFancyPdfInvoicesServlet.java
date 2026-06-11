@@ -1,7 +1,6 @@
 package com.marcobehler.myfancypdfinvoices.web;
 
 import tools.jackson.databind.ObjectMapper;
-import com.marcobehler.myfancypdfinvoices.context.Application;
 import com.marcobehler.myfancypdfinvoices.context.MyFancyPdfInvoicesApplicationConfiguration;
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.services.InvoiceService;
@@ -31,8 +30,15 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
         this.userService = ctx.getBean(UserService.class);
         this.objectMapper = ctx.getBean(ObjectMapper.class);
         this.invoiceService = ctx.getBean(InvoiceService.class);
+
+        // tag::getBeanMethods[]
+        System.out.println(ctx.getBean(UserService.class));
+        System.out.println(ctx.getBean(UserService.class));
+        System.out.println(ctx.getBean(UserService.class));
+        // end::getBeanMethods[]
     }
     // end::initMethod[]
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
