@@ -9,14 +9,20 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class InvoiceService {
 
-    List<Invoice> invoices = new CopyOnWriteArrayList<>();
+    private final UserService userService;
+
+    private List<Invoice> invoices = new CopyOnWriteArrayList<>();
+
+    public InvoiceService(UserService userService) {
+        this.userService = userService;
+    }
 
     public List<Invoice> findAll() {
         return invoices;
     }
 
     public Invoice create(String userId, Integer amount) {
-        User user = Application.userService.findById(userId);
+        User user = userService.findById(userId);
         if (user == null) {
             throw new IllegalStateException();
         }
