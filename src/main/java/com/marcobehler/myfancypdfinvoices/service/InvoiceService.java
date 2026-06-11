@@ -4,6 +4,7 @@ package com.marcobehler.myfancypdfinvoices.service;
 
 import com.marcobehler.myfancypdfinvoices.model.Invoice;
 import com.marcobehler.myfancypdfinvoices.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class InvoiceService {
 
     private final UserService userService;
 
+    @Autowired
     public InvoiceService(UserService userService) {
         this.userService = userService;
     }
