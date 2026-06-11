@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 // tag::componentScanAnnotation[]
-@ComponentScan
+@ComponentScan(basePackageClasses = ApplicationLauncher.class)
 public class MyFancyPdfInvoicesApplicationConfiguration {
 // end::componentScanAnnotation[]
 
