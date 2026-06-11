@@ -35,6 +35,10 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
         System.out.println(ctx.getBean(UserService.class));
         System.out.println(ctx.getBean(UserService.class));
         System.out.println(ctx.getBean(UserService.class));
+
+        System.out.println(ctx.getBean(InvoiceService.class).getUserService());
+        System.out.println(ctx.getBean(InvoiceService.class).getUserService());
+        System.out.println(ctx.getBean(InvoiceService.class).getUserService());
         // end::getBeanMethods[]
     }
     // end::initMethod[]
