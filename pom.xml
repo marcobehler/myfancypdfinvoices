@@ -59,6 +59,11 @@
             <artifactId>hibernate-validator</artifactId>
             <version>9.1.0.Final</version>
         </dependency>
+        <dependency>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
+            <version>6.0.1</version>
+        </dependency>
         <!-- end::hibernateValidatorDependency[] -->
     </dependencies>
 
