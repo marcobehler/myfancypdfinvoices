@@ -41,7 +41,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.marcobehler.ApplicationLauncher</mainClass>
+                            <mainClass>com.marcobehler.myfancypdfinvoices.ApplicationLauncher</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -59,7 +59,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.marcobehler.ApplicationLauncher</mainClass>
+                                    <mainClass>com.marcobehler.myfancypdfinvoices.ApplicationLauncher</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
