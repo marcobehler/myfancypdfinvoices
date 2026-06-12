@@ -9,4 +9,5 @@ public class MyfancypdfinvoicesSpringbootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MyfancypdfinvoicesSpringbootApplication.class, args);
 	}
+
 }
