@@ -34,12 +34,31 @@
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 
+		<!-- tag::starter-spring-boot-databases[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId> <!--1-->
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId> <!--2-->
+			<artifactId>h2</artifactId>
+		</dependency>
+		<!-- end::starter-spring-boot-databases[] -->
+
 		<!-- tag::starter-validation[] -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<!-- end::starter-validation[] -->
+
+		<!-- tag::jackson-xml[] -->
+		<dependency>
+			<groupId>tools.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+		<!-- end::jackson-xml[] -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
