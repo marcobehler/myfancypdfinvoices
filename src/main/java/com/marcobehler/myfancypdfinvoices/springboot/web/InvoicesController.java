@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import java.util.List;
 
 // tag::restControllerAnnotation[]
 @RestController
@@ -27,12 +26,10 @@ public class InvoicesController {
     }
     // end::invoiceServiceInjection[]
 
-    // tag::getAnnotation[]
-    @GetMapping("/invoices")
-    // @RequestMapping(value = "/invoices", method = RequestMethod.GET)
     // tag::invoiceMethod[]
-    public List<Invoice> invoices() {
-        // end::getAnnotation[]
+    @GetMapping("/invoices")
+    public Iterable<Invoice> invoices() {
+
         return invoiceService.findAll();
     }
     // end::invoiceMethod[]
