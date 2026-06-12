@@ -49,5 +49,5 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-    <!-- end::dependencies[] -->
+    <!-- end::dependencies[]-->
 </project>

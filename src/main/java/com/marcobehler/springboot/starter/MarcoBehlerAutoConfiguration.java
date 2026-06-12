@@ -1,27 +1,26 @@
 package com.marcobehler.springboot.starter;
 
-import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.vibur.dbcp.ViburDBCPDataSource;
 import org.vibur.dbcp.ViburDataSource;
 
 import javax.sql.DataSource;
 
-// tag::springBootAnnotations[]
-@AutoConfiguration(before = DataSourceAutoConfiguration.class)  // <1>
+@Configuration  // <1>
 @ConditionalOnClass(ViburDataSource.class)
 @ConditionalOnMissingBean(DataSource.class)
-// end::springBootAnnotations[]
-// tag::configurationProperties[]
+@ConditionalOnProperty(name = "marcobehler.datasource.type", havingValue = "org.vibur.dbcp.ViburDBCPDataSource")
+@AutoConfigureBefore(DataSourceAutoConfiguration.class)
 @EnableConfigurationProperties(MarcoBehlerDataSourceProperties.class)
 public class MarcoBehlerAutoConfiguration {
-// end::configurationProperties[]
 
-    // tag::dataSource[]
     @Bean
     public ViburDBCPDataSource dataSource(MarcoBehlerDataSourceProperties properties) {
         ViburDBCPDataSource ds = new ViburDBCPDataSource();
@@ -32,5 +31,4 @@ public class MarcoBehlerAutoConfiguration {
         ds.start();
         return ds;
     }
-    // end::dataSource[]
 }
