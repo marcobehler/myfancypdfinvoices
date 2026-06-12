@@ -1,7 +1,7 @@
-package com.marcobehler.myfancypdfinvoices.service;
+package com.marcobehler.myfancypdfinvoices.springboot.service;
 
 // tag::atComponent[]
-import com.marcobehler.myfancypdfinvoices.model.User;
+import com.marcobehler.myfancypdfinvoices.springboot.model.User;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;

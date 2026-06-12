@@ -1,7 +1,7 @@
-package com.marcobehler.myfancypdfinvoices.service;
+package com.marcobehler.myfancypdfinvoices.springboot.service;
 
 
-import com.marcobehler.myfancypdfinvoices.model.Invoice;
+import com.marcobehler.myfancypdfinvoices.springboot.model.Invoice;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -54,7 +54,7 @@ public class InvoiceService {
     @Transactional
     public List<Invoice> findAll() {
         System.out.println("Is a database transaction open? = " + TransactionSynchronizationManager.isActualTransactionActive());
-    // end::findAllMethodHeaderTx[]
+        // end::findAllMethodHeaderTx[]
         return jdbcTemplate.query("select id, user_id, pdf_url, amount from invoices", (resultSet, rowNum) -> {
             Invoice invoice = new Invoice();
             invoice.setId(resultSet.getObject("id").toString());
@@ -70,7 +70,7 @@ public class InvoiceService {
     @Transactional
     public Invoice create(String userId, Integer amount) {
         System.out.println("Is a database transaction open? = " + TransactionSynchronizationManager.isActualTransactionActive());
-    // end::createMethodHeaderTx[]
+        // end::createMethodHeaderTx[]
         // tag::createStaticPdfUrl[]
         String generatedPdfUrl = cdnUrl + "/images/default/sample.pdf";
         // end::createStaticPdfUrl[]

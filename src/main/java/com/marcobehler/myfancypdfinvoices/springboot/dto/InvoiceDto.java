@@ -1,4 +1,4 @@
-package com.marcobehler.myfancypdfinvoices.dto;
+package com.marcobehler.myfancypdfinvoices.springboot.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

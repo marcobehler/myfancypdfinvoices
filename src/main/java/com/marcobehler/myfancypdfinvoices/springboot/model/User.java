@@ -1,4 +1,4 @@
-package com.marcobehler.myfancypdfinvoices.model;
+package com.marcobehler.myfancypdfinvoices.springboot.model;
 
 public class User {
 
